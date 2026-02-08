@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="main">
+        <header>
+            <nav>
+                <h3>
+                    <a class="primary-text" href="index.html">Newsletter Pro</a>
+                </h3>
+            </nav>
+        </header>
+        <div class="hero">
+            <form method="POST" class="primary-text loginForm">
+                <fieldset>
+                    <legend>Login</legend>
+                    <label for="email">Email: </label><br>
+                    <input type="email" name="email" id="email" required><br><br>
+                    <label for="password">Password: </label><br>
+                    <input type="password" name="password" id="password" minlength="8" required><br><br>
+                    <input type="submit" value="Login">
+                </fieldset>
+            </form>
+            <br>
+            <h1 class="error"></h1>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+</body>
+
+</html>

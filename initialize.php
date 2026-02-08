@@ -18,7 +18,7 @@ try {
         header("Location: register.php");
         exit;
     } else {
-        header("Location: login.php");
+        header("Location: Frontend/login.html");
         exit;
     }
 } catch (mysqli_sql_exception $e) {
