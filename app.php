@@ -82,7 +82,7 @@ mysqli_close($conn);
                         <legend>
                             Insert:
                         </legend>
-                        <label for="email">Email: </label><br>
+                        <label for="insert">Email: </label><br>
                         <input type="email" name="insert" id="insert" required><br>
                         <input type="submit" value="Insert">
                     </fieldset>
