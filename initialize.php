@@ -15,7 +15,7 @@ try {
     mysqli_close($conn);
     //print_r($row);
     if ($row[0] == 0) {
-        header("Location: register.php");
+        header("Location: Frontend/register.html");
         exit;
     } else {
         header("Location: Frontend/login.html");
