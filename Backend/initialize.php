@@ -15,10 +15,10 @@ try {
     mysqli_close($conn);
     //print_r($row);
     if ($row[0] == 0) {
-        header("Location: Frontend/register.html");
+        header("Location: ../Frontend/register.html");
         exit;
     } else {
-        header("Location: Frontend/login.html");
+        header("Location: ../Frontend/login.html");
         exit;
     }
 } catch (mysqli_sql_exception $e) {
