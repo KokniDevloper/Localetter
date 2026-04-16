@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Pro</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="main">
+        <header>
+            <nav>
+                <h3>
+                    <a class="primary-text" href="index.html">Newsletter Pro</a>
+                </h3>
+                <a href="../Backend/auth/logout.php">logout</a>
+            </nav>
+        </header>
+        <div class="hero">
+            <h1 class="primary-text">Newsletter Professional</h1>
+            <h2 class="secondary-text">Welcome</h2>
+            <form class="insert secondary-text">
+                <fieldset>
+                    <legend>Insert</legend>
+                    <label for="insert">Email</label>
+                    <input type="email" name="insert" id="insert" required>
+                    <input type="submit" value="Insert" class="form-btn">
+                </fieldset>
+            </form>
+            <div class="list secondary-text">
+                <div>
+                    <button type="button" class="send form-btn" disabled>Send Mail</button>
+                    <button type="button" class="update form-btn" disabled>Update</button>
+                    <button type="button" class="delete form-btn" disabled>Delete</button>
+                </div>
+                <table class="table"></table>
+            </div>
+        </div>
+        <div class="overlay">
+            <div class="dialog"></div>
+        </div>
+    </div>
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
