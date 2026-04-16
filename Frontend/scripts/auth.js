@@ -17,7 +17,7 @@ form.addEventListener("submit", async (e) => {
   if (e.submitter.name == "Register") {
     let result = await callAPI(`../Backend/auth/register.php`, data);
     if (result.success) {
-      window.location.href = "../app.php";
+      window.location.href = "app.html";
     } else {
       let errorDisplay = document.querySelector(".error");
       errorDisplay.innerHTML = result.error;
@@ -30,7 +30,7 @@ form.addEventListener("submit", async (e) => {
   if (e.submitter.name == "Login") {
     let result = await callAPI(`../Backend/auth/login.php`, data);
     if (result.success) {
-      window.location.href = "../app.php";
+      window.location.href = "app.html";
     } else {
       let errorDisplay = document.querySelector(".error");
       errorDisplay.innerText = result.error;
