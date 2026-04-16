@@ -2,6 +2,7 @@ body {
   background-color: #0f172a;
   padding: 0;
   margin: 0;
+  font-family: system-ui, sans-serif;
 }
 
 .main {
@@ -23,15 +24,20 @@ body {
 a {
   text-decoration: none;
   color: #e5e7eb;
+  transition: color 0.2s ease;
 }
 
-a:hover {
+a:hover,
+.form-btn:hover {
   color: #14b8a6;
+  cursor: pointer;
 }
 
 header {
   background-color: #111827;
   position: sticky;
+  top: 0;
+  z-index: 50;
   border-bottom: 1px solid #1f2937;
 }
 
@@ -48,7 +54,9 @@ nav {
   flex-direction: column;
   align-items: center;
   flex: 1;
-  min-height: auto;
+  min-height: auto
+  ;
+  padding: 40px 0;
 }
 
 .callToAction {
@@ -60,16 +68,212 @@ nav {
   text-align: center;
   font-size: larger;
   font-weight: bolder;
+  transition: background-color 0.2s ease;
 }
 
-.appForms {
-  width: 80%;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 20px;
+.callToAction:hover {
+  background-color: #7c3aed;
+  cursor: pointer;
 }
 
 .error {
-  color: red;
+  color: #f87171;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+  min-height: 20px;
+}
+
+table {
+  margin-top: 25px;
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid #1f2937;
+  border-collapse: collapse;
+  padding: 10px 14px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+th {
+  background-color: #0f172a;
+  color: #e5e7eb;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+tr:nth-child(even) {
+  background-color: #0f172a;
+}
+
+tr:hover {
+  background-color: #1e293b;
+  transition: background-color 0.15s ease;
+}
+
+td:first-child {
+  text-align: center;
+  width: 48px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-btn {
+  color: #e5e7eb;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.update:disabled,
+.delete:disabled,
+.send:disabled {
+  color: #334155;
+  cursor: not-allowed;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog {
+  background: #111827;
+  border-top: 3px solid #14b8a6;
+  border-radius: 8px;
+  padding: 28px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.dialog-progress {
+  font-size: 12px;
+  color: #9ca3af;
+  letter-spacing: 0.05em;
+}
+
+.dialog-email {
+  background: #0f172a;
+  color: #9ca3af;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  border: 1px solid #1f2937;
+}
+
+.dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dialog input[type="email"] {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  color: #e5e7eb;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.dialog input[type="email"]:focus {
+  border-color: #14b8a6;
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.dialog.delete-dialog {
+    border-top-color: #ef4444;
+}
+
+.dialog.delete-dialog .dialog-buttons {
+    justify-content: space-around;
+}
+
+.delete-btn {
+    color: #ef4444;
+}
+
+.delete-btn:hover {
+    color: #dc2626;
+}
+
+.delete-confirm {
+  background: #1a0f0f;
+  border: 1px solid #3b1515;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+
+.delete-warning {
+  color: #f87171;
+  font-size: 13px;
+  margin: 0;
+}
+
+.dialog.send-dialog {
+    border-top-color: #22c55e;
+}
+
+.send-dialog input[type="text"],
+.send-dialog textarea {
+    width: 100%;
+    background: #0f172a;
+    border: 1px solid #1f2937;
+    color: #e5e7eb;
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.send-dialog input[type="text"]:focus,
+.send-dialog textarea:focus {
+    border-color: #22c55e;
+}
+
+.send-btn {
+    color: #22c55e;
+}
+
+.send-btn:hover {
+    color: #16a34a;
 }
