@@ -1,7 +1,7 @@
 <?php
 session_start();
 header('Content-Type: application/json');
-$conn = mysqli_connect('localhost', 'root', '', 'newsletterpro');
+$conn = mysqli_connect('localhost', 'root', '', 'localetter');
 $query = 'SELECT * FROM admin';
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) != 0) {
