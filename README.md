@@ -1,78 +1,114 @@
-# Newsletter Pro
+# LocaLetter
 
-A self-hosted, open-source newsletter and mailing list manager  
-built with PHP + MySQL for learning backend fundamentals.
+> Previously Newsletter Pro
 
-> Not a SaaS. One admin. Your server. Your data.
+Localetter is a self-hosted mailing list manager that runs on your local XAMPP stack.
+No subscriptions, no cloud, no data leaving your hands.
+
+[Download LocaLetter](https://localetter.vercel.app/)
+
+(https://localetter.vercel.app/)
 
 ---
 
-## ✨ Features
-- Single-admin authentication
-- Mailing list CRUD (add / read / update / delete emails)
-- Clean PRG-based backend flow
+## Features
+
+- Bulk email sending
+- Mailing list CRUD (insert, read, update, delete)
+- Gmail SMTP integration via PHPMailer
 - Session-protected dashboard
-- Dark-mode focused UI
+- Single-admin registration and login flow
 
 ---
 
-## 🚧 Project Status
-**Beta / Pre-Release**
+## Current Stack
 
-Core backend is functional.  
-Email sending is **planned for v1.0**.
-
----
-
-## 🧠 Why this project?
-This project exists to:
-- learn backend data flow
-- understand auth, sessions, PRG
-- build a real, self-hosted tool
-- make my first functional backend system
-- and I unexpectedly got PHP as a major mandatory 😓
-
----
-
-## 🛠 Tech Stack
-- PHP (no framework)
+- PHP
 - MySQL
-- HTML + CSS
-- No JavaScript (yet)
+- HTML, CSS, JavaScript
+- PHPMailer (manual file-based integration, no Composer)
 
 ---
 
-## 🧪 Local Setup
-1. Clone the repo
-2. Place inside `htdocs`
-3. Start Apache + MySQL
-4. Visit `index.html`
-5. Follow the setup flow (Just Click Let's Go!)
-    (Make sure you have no database with the name newsletterpro; and if exists you need to either drop that database or change the database name throughout the php interaction files)
+## App Flow
+
+1. Open index.html
+2. Click Let's Go
+3. Backend/initialize.php creates database and required tables
+4. Register/Login using credentials.
+5. On auth success, redirect to Frontend/app.html
+6. Dashboard allows list management and bulk mail sending
 
 ---
 
-## Deployment Note
+## Database
 
-This project is currently designed for local development (localhost).
+Current database name: localetter
+>Make sure in phpMyAdmin no database exists with name 'localetter'.
 
-If you intend to run it on a personal server:
-- You will need to update database connection details in `initialize.php`
-- Additional configuration may be required
+Tables created by Backend/initialize.php:
 
-⚠️ The project is still under active development and is not production-hardened.
+- admin
+- list
 
----
+If you need to change the database name, update these files:
 
-## 🗺 Planned Features for Next Release (0.3)
-
-- Make the user flow more efficient through login process.
-- Further ui improve.
-- Centralized database connection for all files.
-- And probably something more 😁
+- Backend/initialize.php
+- Backend/db.php
+- Backend/auth/login.php
+- Backend/auth/register.php
 
 ---
 
-## ⚠ Disclaimer
-This is a learning-focused project.  
-Not production-hardened. Use responsibly.
+## Email Configuration
+
+Localetter sends mail from Backend/mail/send.php using Gmail SMTP.
+
+Required setup:
+
+1. Copy secret.example.php to secret.php in the project root.
+2. Fill these values in secret.php:
+   - MAIL_FROM
+   - MAIL_PASSWORD (Gmail App Password)
+   - MAIL_NAME
+3. Keep secret.php out of Git.
+
+This repository already ignores:
+
+- secret.php
+- .vscode/
+
+---
+
+## Local Setup
+
+1. Clone the repository into your XAMPP htdocs folder.
+2. Start Apache and MySQL in XAMPP.
+3. Open the project in browser (for example /Localetter/index.html).
+4. Click Let's Go to initialize DB and follow register/login flow.
+5. Add recipients in dashboard and use Send Mail.
+
+---
+
+## Project Structure
+
+- Backend/auth: auth + session guard + logout + session check
+- Backend/crud: mailing list CRUD endpoints
+- Backend/mail: PHPMailer files + send endpoint
+- Frontend: pages, scripts, styles
+- secret.example.php: mail credentials template
+- secret.php: local credentials file (not tracked)
+
+---
+
+## Important Notes
+
+- Intended for local/self-hosted usage.
+- Not production hardened yet.
+- Admin password is currently stored as plain text in DB.
+
+---
+
+## License
+
+MIT 2025.
